@@ -1,0 +1,192 @@
+@import url('https://fonts.cdnfonts.com/css/pricedown');
+@import "tailwindcss";
+
+/* ============================================
+   MSOT Gamified Learning - Custom Styles
+   ============================================ */
+
+/* Base styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 3px;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #080808;
+  color: #e2e8f0;
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid rgba(245, 158, 11, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(245, 158, 11, 0.3);
+  color: white;
+}
+
+/* Smooth transitions for prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Loading animation keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============================================
+   GTA V "LOS SANTOS: MSOT EDITION" STYLES
+   ============================================ */
+
+.gta-card {
+  background: rgba(18, 20, 24, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(63, 63, 70, 0.5);
+  border-radius: 1rem;
+}
+
+.gta-cash {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  color: #22C55E;
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+}
+
+.gta-scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+.font-pricedown {
+  font-family: 'Pricedown', 'Impact', 'Arial Black', sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.font-chalet {
+  font-family: 'Helvetica Neue', 'Arial Black', 'Impact', -apple-system, sans-serif;
+  font-stretch: condensed;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gta-text-shadow {
+  text-shadow: 
+    2px 2px 0px #000,
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.gta-panel-clip-left {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.gta-panel-clip-center {
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.gta-panel-clip-right {
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@keyframes gta-spin-cog {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-gta-cog {
+  animation: gta-spin-cog 3s linear infinite;
+}
+
+@keyframes gta-star-flash {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px #FBBF24); }
+  50% { opacity: 0.3; filter: drop-shadow(0 0 2px #F59E0B); }
+}
+
+.animate-gta-star {
+  animation: gta-star-flash 0.8s ease-in-out infinite;
+}
+
+@keyframes mission-stamp {
+  0% { transform: scale(3) rotate(-6deg); opacity: 0; }
+  60% { transform: scale(0.9) rotate(2deg); opacity: 1; }
+  80% { transform: scale(1.05) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-mission-stamp {
+  animation: mission-stamp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
